@@ -1,25 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { HashLink } from 'react-router-hash-link';
-import WeatherCard from './WeatherCard';
 import axios from 'axios';
 
 const HeroSection = () => {
-  const [weather, setWeather] = useState([]);
-  const apiKey = import.meta.env.VITE_WEATHER_API_KEY || process.env.VITE_WEATHER_API_KEY;
-
-  const fetchWeather = async () => {
-    try {
-      const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=New%20Delhi&units=metric&appid=${apiKey}`);
-      setWeather(response.data);
-    } catch (error) {
-      console.error("Error", error);
-    }
-  }
-
-  useEffect(() => {
-    fetchWeather();
-  }, []);
-
   return (
     <div className="min-h-screen flex">
       <section className="bg-cover bg-center py-16 sm:py-32 w-full bg object-cover">
@@ -34,9 +17,6 @@ const HeroSection = () => {
                 </HashLink>
               </div>
             </div>
-          {weather && Object.keys(weather).length > 0 && (
-              <WeatherCard image={weather.weather[0].icon} name={weather.name} temp={weather.main.temp} weather={weather.weather[0].main} />
-            )}
           </div>
         </div>
       </section>
