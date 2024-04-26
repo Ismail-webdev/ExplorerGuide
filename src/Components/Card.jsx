@@ -1,4 +1,4 @@
-import { Modal, Box, Typography, Divider,IconButton } from "@mui/material";
+import { Modal, Box, Typography, Divider,IconButton, Grid } from "@mui/material";
 import {X} from 'lucide-react';
 
 import { useState } from "react"
@@ -28,22 +28,27 @@ const Card = ({name,image,description,location}) => {
              </article>
          </div>
          <Modal open={open} onClose={handleClose}>
-            <Box sx={modalStyle}>
-                <IconButton aria-label="close" color="inherit" size="large" onClick={handleClose} style={{ position: 'absolute', right: 10, top: 10 }}>
-                <X />
-                </IconButton>
-                <img src={image} alt={name} className="w-1/2" loading="lazy"/>
-                <Divider className="w-1 bg-gray-300" orientation="vertical"/>
-                <Box sx={{width: "50%", padding: "1rem"}}>
-                <Typography id="modal-modal-title" variant="h6" component="h2">
-                {name}  ({location})
-                </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            {description}
-          </Typography>
+    <Box sx={modalStyle}>
+        <IconButton aria-label="close" color="inherit" size="large" onClick={handleClose} style={{ position: 'absolute', right: 10, top: 10 }}>
+            <X />
+        </IconButton>
+        <Grid container spacing={2}>
+            <Grid item xs={12} sm={6}>
+                <img src={image} alt={name} loading="lazy" width="100%" height="auto" />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+                <Box sx={{padding: "1rem"}}>
+                    <Typography id="modal-modal-title" variant="h6" component="h2">
+                        {name}  ({location})
+                    </Typography>
+                    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                        {description}
+                    </Typography>
                 </Box>
-            </Box>
-      </Modal>
+            </Grid>
+        </Grid>
+    </Box>
+</Modal>
      </>
   )
 }

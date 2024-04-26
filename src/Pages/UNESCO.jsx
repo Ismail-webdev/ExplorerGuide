@@ -1,6 +1,7 @@
 import React, { Suspense, lazy, useEffect, useState } from 'react'
 import { db } from '../config/firebase';
 import { collection, onSnapshot, query } from 'firebase/firestore';
+import { Typography } from '@mui/material';
 
 const SiteCard = lazy(() => import('../Components/SiteCard'));
 const UNESCO = () => {
@@ -35,13 +36,17 @@ const UNESCO = () => {
       <h3 className='text-2xl font-poppins font-bold'>UNESCO SITES OF INDIA</h3>
      <input type="text" placeholder='Search....' value={searchQuery}onChange={(e)=> setSearchQuery(e.target.value)} className='border rounded-md px-2 py-1 my-4 right-0'/>
      <div className='flex flex-wrap justify-center'>
-     {filteredUnesco.map((site) => (
-          <div key={site.id} className="max-w-[280px] border rounded-lg text-center m-3 shadow hover:cursor-pointer font-poppins">
-             <Suspense fallback={<div>Loading...</div>}>
-              <SiteCard image={site.img} name={site.name} location={site.location} description={site.description} />
+     {filteredUnesco.length === 0 ? (
+    <Typography variant="body1">No UNESCO sites found.</Typography>
+) : (
+    filteredUnesco.map((site) => (
+        <div key={site.id} className="max-w-[280px] border rounded-lg text-center m-3 shadow hover:cursor-pointer font-poppins">
+            <Suspense fallback={<div>Loading...</div>}>
+                <SiteCard image={site.img} name={site.name} location={site.location} description={site.description} />
             </Suspense>
-          </div>
-        ))}
+        </div>
+    ))
+)}
      </div>
     </div>
   )

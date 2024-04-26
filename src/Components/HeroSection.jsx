@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const HeroSection = () => {
   const [weather, setWeather] = useState([]);
-  const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
+  const apiKey = import.meta.env.VITE_WEATHER_API_KEY || process.env.VITE_WEATHER_API_KEY;
 
   const fetchWeather = async () => {
     try {

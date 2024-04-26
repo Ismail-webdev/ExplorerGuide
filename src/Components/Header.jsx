@@ -43,7 +43,7 @@ const Header = () => {
       </div>
       <div className='hidden md:block'>
        <ul className='flex'>
-         <li>Username: {displayNameOrUsername}</li>
+         <li>Hi👋 {displayNameOrUsername}</li>
           <li><button onClick={handleLogOut} className='border px-2 rounded-md mx-2 text-white bg-indigo-700 hover:bg-indigo-600 outline-none'>Logout</button></li>
        </ul>
       </div>
@@ -55,7 +55,7 @@ const Header = () => {
             <li className='hover:underline'><NavLink key='/destinations' to='/destinations'>Destination</NavLink></li>
             <li className='hover:underline'><NavLink key='/unesco-site' to='/unesco-site'>UNESCO Sites</NavLink></li> 
             <li className='hover:underline'><NavLink key='/news' to='/news'>News</NavLink></li>
-            <li>Username: {displayNameOrUsername}</li>
+            <li>Hi👋  {displayNameOrUsername}</li>
             <li><button onClick={handleLogOut} className='border px-2 rounded-md mx-2 text-white bg-indigo-700 hover:bg-indigo-600'>Logout</button></li>
           </ul>
           </>
