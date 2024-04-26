@@ -8,7 +8,7 @@ import SignIn from './Pages/SignIn';
 import Home from './Pages/Home';
 import Destination from './Pages/Destination';
 import UNESCO from './Pages/UNESCO';
-import News from './Pages/News';
+import News from './Pages/News'
 
 const App = () => {
   return (

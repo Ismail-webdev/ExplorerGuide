@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { HashLink } from 'react-router-hash-link';
-import axios from 'axios';
 
 const HeroSection = () => {
   return (
