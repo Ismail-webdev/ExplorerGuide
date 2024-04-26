@@ -5,7 +5,7 @@ import notavailable from '../assets/Image_not_available.png'
 const NewsCard = lazy(() => import('../Components/NewsCard'));
 const News = () => {
   const [news,setNews] = useState([]);
-  const apikey = import.meta.env.VITE_API_KEY;
+  const apikey = import.meta.env.VITE_API_KEY || process.env.VITE_API_KEY;
   const FetchNews = async () => {
     try {
       const response = await axios.get(`https://newsapi.org/v2/top-headlines?country=in&apiKey=${apikey}`);
